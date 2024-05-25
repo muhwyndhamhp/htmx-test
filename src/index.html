@@ -1,25 +1,36 @@
 {{define "index"}}
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Home</title>
     <link rel="stylesheet" href="/scripts/tailwind.css">
     <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
-</head>
-<body>
-  <form class="w-full h-full flex flex-col p-6">
-    <div class="flex flex-row">
-      <div class="w-1/2 border border-gray-300 rounded-lg p-2 m-2" id="parent-div">
-          {{template "input" .}}
-          <br />
-          <button class="w-1/2 bg-blue-500 text-white rounded-lg p-2 m-2" hx-get="/add-input" hx-swap="afterbegin" hx-target="#parent-div">New Input</button>
+  </head>
+  <body>
+    <form class="w-full h-full flex flex-col p-6">
+      <div class="flex flex-row">
+
+        <div class="flex flex-col w-1/2 p-6">
+          <div class="w-full border border-gray-300 rounded-lg p-2 m-2" id="parent-div-1">
+            {{template "input" (index .Form 0)}}
+            <br />
+            <button class="w-1/2 bg-blue-500 text-white rounded-lg p-2 m-2" hx-get="/add-input?name={{(index .Form 0).Name}}" hx-swap="afterbegin" hx-target="#parent-div-1">New Input</button>
+          </div>
+          <div class="w-full border border-gray-300 rounded-lg p-2 m-2" id="parent-div-2">
+            {{template "input" (index .Form 1)}}
+            <br />
+            <button class="w-1/2 bg-blue-500 text-white rounded-lg p-2 m-2" hx-get="/add-input?name={{(index .Form 1).Name}}" hx-swap="afterbegin" hx-target="#parent-div-2">New Input</button>
+          </div>
+        </div>
+        <div id="output" class="w-1/2 border border-gray-300 rounded-lg p-2 m-2">
+        </div>
+
       </div>
-      <div id="output" class="w-1/2 border border-gray-300 rounded-lg p-2 m-2">
+
       </div>
-    </div>
-    <button class="w-1/2 bg-blue-500 text-white rounded-lg p-2 m-2" hx-post="/submit" hx-target="#output" hx-swap="innerHTML">Submit</button>
-  </form>
-</body>
+      <button class="w-1/2 bg-blue-500 text-white rounded-lg p-2 m-2" hx-post="/submit" hx-target="#output" hx-swap="innerHTML">Submit</button>
+    </form>
+  </body>
 </html>
 {{end}}
 

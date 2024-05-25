@@ -14,18 +14,30 @@ func main() {
 	e.Static("/scripts", "scripts")
 
 	e.GET("/", func(c echo.Context) error {
-		return c.Render(http.StatusOK, "index", nil)
+		res := map[string]interface{}{
+			"Form": []interface{}{
+				map[string]string{
+					"Name": "title",
+				},
+				map[string]string{
+					"Name": "description",
+				},
+			},
+		}
+		return c.Render(http.StatusOK, "index", res)
 	})
 
 	e.GET("/add-input", func(c echo.Context) error {
-		return c.Render(http.StatusOK, "input", nil)
+		name := c.QueryParam("name")
+		res := map[string]string{"Name": name}
+		return c.Render(http.StatusOK, "input", res)
 	})
 
 	e.POST("/submit", func(c echo.Context) error {
 		var data map[string][]string
 		_ = c.Bind(&data)
 
-		js, _ := json.Marshal(data)
+		js, _ := json.MarshalIndent(data, "", "  ")
 
 		return c.HTML(http.StatusOK, string(js))
 	})
