@@ -1,0 +1,26 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="/scripts/tailwind.css">
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+</head>
+<body>
+  <form class="w-full h-full flex flex-col p-6">
+    <div class="flex flex-row">
+      <div class="w-1/2 border border-gray-300 rounded-lg p-2 m-2" id="parent-div">
+          {{template "input" .}}
+          <br />
+          <button class="w-1/2 bg-blue-500 text-white rounded-lg p-2 m-2" hx-get="/add-input" hx-swap="afterbegin" hx-target="#parent-div">New Input</button>
+      </div>
+      <div id="output" class="w-1/2 border border-gray-300 rounded-lg p-2 m-2">
+      </div>
+    </div>
+    <button class="w-1/2 bg-blue-500 text-white rounded-lg p-2 m-2" hx-post="/submit" hx-target="#output" hx-swap="innerHTML">Submit</button>
+  </form>
+</body>
+</html>
+{{end}}
+
+
