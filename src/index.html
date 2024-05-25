@@ -14,12 +14,12 @@
           <div class="w-full border border-gray-300 rounded-lg p-2 m-2" id="parent-div-1">
             {{template "input" (index .Form 0)}}
             <br />
-            <button class="w-1/2 bg-blue-500 text-white rounded-lg p-2 m-2" hx-get="/add-input?name={{(index .Form 0).Name}}" hx-swap="afterbegin" hx-target="#parent-div-1">New Input</button>
+            <button class="w-1/2 bg-blue-500 text-white rounded-lg p-2 m-2" hx-get="/add-input?name={{(index .Form 0).Name}}" hx-swap="afterbegin" hx-target="#parent-div-1">New Title</button>
           </div>
           <div class="w-full border border-gray-300 rounded-lg p-2 m-2" id="parent-div-2">
             {{template "input" (index .Form 1)}}
             <br />
-            <button class="w-1/2 bg-blue-500 text-white rounded-lg p-2 m-2" hx-get="/add-input?name={{(index .Form 1).Name}}" hx-swap="afterbegin" hx-target="#parent-div-2">New Input</button>
+            <button class="w-1/2 bg-blue-500 text-white rounded-lg p-2 m-2" hx-get="/add-input?name={{(index .Form 1).Name}}" hx-swap="afterbegin" hx-target="#parent-div-2">New Description</button>
           </div>
         </div>
         <div id="output" class="w-1/2 border border-gray-300 rounded-lg p-2 m-2">
