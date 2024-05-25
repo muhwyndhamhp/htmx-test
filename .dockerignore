@@ -1,0 +1,23 @@
+# flyctl launch added from .gitignore
+**/vendor
+**/tmp
+
+
+# flyctl launch added from vendor/github.com/labstack/echo/v4/.gitignore
+vendor/github.com/labstack/echo/v4/**/.DS_Store
+vendor/github.com/labstack/echo/v4/**/coverage.txt
+vendor/github.com/labstack/echo/v4/**/_test
+vendor/github.com/labstack/echo/v4/**/vendor
+vendor/github.com/labstack/echo/v4/**/.idea
+vendor/github.com/labstack/echo/v4/**/*.iml
+vendor/github.com/labstack/echo/v4/**/*.out
+vendor/github.com/labstack/echo/v4/**/.vscode
+
+# flyctl launch added from vendor/golang.org/x/net/http2/.gitignore
+vendor/golang.org/x/net/http2/**/*~
+vendor/golang.org/x/net/http2/**/h2i/h2i
+
+# flyctl launch added from vendor/golang.org/x/sys/unix/.gitignore
+vendor/golang.org/x/sys/unix/**/_obj
+vendor/golang.org/x/sys/unix/**/unix.test
+fly.toml
