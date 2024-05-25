@@ -1,3 +1,3 @@
 # HTMX Example with Golang
 
-![How it works | height = 100px](./server_browser.png)
+<img src="./server_browser.png" width="100" height="100">
